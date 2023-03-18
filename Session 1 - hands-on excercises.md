@@ -21,6 +21,9 @@ For more versions and images check out [our public repo](https://github.com/geti
 # Exercise
 
 ## Setting up environment
+
+In Modern Data Platform by GID, the `VertexAI` user-managed workbook is a main workspace for an analytics engineer. `Vertex AI notebook` is a web-based platform primarily designed for creating, editing, and running machine learning models on Google Cloud Platform. However, the scalable environment of Vertex AI notebook has also proved useful for developing computationally lightweight data transformation projects. It runs on top of a virtual machine instance on Google Cloud Platform. When you create a notebook instance, Google Cloud Platform provisions a virtual machine for you and installs all the necessary software and dependencies. You can then access the notebook instance using a web browser and start coding without having to worry about the underlying infrastructure.
+
 1. Go to `Vertex AI`: [here](https://console.cloud.google.com/vertex-ai/workbench/list/instances?referrer=search&project=bdtw-mdp-workshop&supportedpurview=project).
 
 3. Click on `New Notebook` located in the top bar and then `Customize...`
@@ -53,9 +56,6 @@ For more versions and images check out [our public repo](https://github.com/geti
     <img width="500" alt="image" src="Images/VAI_acc_06.png" >
 
 
-
-
-
 ## Create your Gitlab project
 
 
@@ -64,7 +64,11 @@ For more versions and images check out [our public repo](https://github.com/geti
 
 ## Access Bigquery Project
 
-1. In order to familiarize yourself with Bigquery, click on the following [link](https://console.cloud.google.com/bigquery?authuser=0&project=bdtw-mdp-workshop&ws=!1m0)
+BigQuery is a fully-managed cloud data warehouse service that enables users to store, analyze, and query large datasets using SQL-like syntax. It is part of the Google Cloud Platform and can handle petabyte-scale datasets with high performance and low latency. BigQuery is designed to be scalable, fast, and easy to use, and it supports a variety of data formats and integrations with other GCP services. It allows users to run complex analytical queries on large datasets using a familiar SQL interface, without having to worry about the underlying infrastructure.
+
+The MDP instance we are working with during this tutorial runs on Bigquery. In order to familiarize yourself with Bigquery proceed with the following steps:
+
+1. Click on the following [link](https://console.cloud.google.com/bigquery?authuser=0&project=bdtw-mdp-workshop&ws=!1m0)
 
 2. The link will open [Google Bigquery SQL Workspace](https://cloud.google.com/bigquery/docs/introduction) for the `bdtw-mdp-workshop` project. In short - Bigquery is the enterprise data warehouse service hosted by Google. Simply speaking you can treat `project` as an equivalent for a Database. All tables, views and schemas are stored there.
 
