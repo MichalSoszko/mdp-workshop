@@ -74,7 +74,7 @@ The MDP instance we are working with during this tutorial runs on Bigquery. In o
 
 3. In BQ `tables` and `views` are stored in `schemas`. You can access them through left side navigation panel. Click on the `raw_data` schema to explore data we're going to use on this workshop. This data is a direct copy of The [Look Ecommerce data set](https://console.cloud.google.com/bigquery(cameo:product/bigquery-public-data/thelook-ecommerce)?authuser=0&project=bdtw-mdp-workshop) created by Google. 
 
-    <img width="700" alt="image" src="Images/BQ_acc_01.png" >
+    <img width="900" alt="image" src="Images/BQ_acc_01.png" >
 
 4. To create a query, click on the `+` icon on top of the `Editor` tab in the SQL workspace and write the select statement. You can use the sample querries provided by the Looker team, as stated in the Dataset's public description:
 
