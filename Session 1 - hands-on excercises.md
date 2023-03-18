@@ -55,6 +55,56 @@ For more versions and images check out [our public repo](https://github.com/geti
 
 
 
+## Create your Gitlab project
+
+
+
+
+
+## Access Bigquery Project
+
+1. In order to familiarize yourself with Bigquery, click on the following [link](https://console.cloud.google.com/bigquery?authuser=0&project=bdtw-mdp-workshop&ws=!1m0)
+
+2. The link will open [Google Bigquery SQL Workspace](https://cloud.google.com/bigquery/docs/introduction) for the `bdtw-mdp-workshop` project. In short - Bigquery is the enterprise data warehouse service hosted by Google. Simply speaking you can treat `project` as an equivalent for a Database. All tables, views and schemas are stored there.
+
+3. In BQ `tables` and `views` are stored in `schemas`. You can access them through left side navigation panel. Click on the `raw_data` schema to explore data we're going to use on this workshop. This data is a direct copy of The [Look Ecommerce data](https://console.cloud.google.com/bigquery(cameo:product/bigquery-public-data/thelook-ecommerce)?authuser=0&project=bdtw-mdp-workshop) set created by Google. 
+
+    <img width="700" alt="image" src="Images/BQ_acc_01.png" >
+
+4. To create a query, click on the `Editor` tab in the SQL workspace and write the select statement. You can use the sample querries provided by the Looker team, as stated in the Dataset's public description:
+
+    - Total number of sales broken down by product in descending order.
+
+    <img width="700" alt="image" src="Images/BQ_acc_02.png" >
+
+    Copy-paste the following query into the SQL Editor and press `Run`. Please note that in Bigquery you reference a table using backquote marks:
+
+    ```
+    SELECT oi.product_id as product_id, p.name as product_name, p.category as product_category, count(*) as num_of_orders
+    FROM `bdtw-mdp-workshop.raw_data.products` as p 
+    JOIN `bdtw-mdp-workshop.raw_data.thelook_ecommerce.order_items` as oi
+    ON p.id = oi.product_id
+    GROUP BY 1,2,3
+    ORDER BY num_of_orders DESC
+    ```
+
+    - The store’s top 10 customers with the highest average price per order.
+
+    ```
+    SELECT 
+    u.id as user_id, 
+    u.first_name, 
+    u.last_name, 
+    avg(oi.sale_price) as avg_sale_price
+    FROM `bdtw-mdp-workshop.raw_data.users` as u 
+    JOIN `bdtw-mdp-workshop.raw_data.order_items` as oi
+    ON u.id = oi.user_id
+    GROUP BY 1,2,3
+    ORDER BY avg_sale_price DESC
+    LIMIT 10
+    ```
+
+
 
 ## Optional: create your GCP account and access our BigQuery project on Google Cloud Platform.
 
@@ -80,6 +130,8 @@ For more versions and images check out [our public repo](https://github.com/geti
 6. In top left corner, click on `Select a project` icon, switch to `ALL` projects and choose `bdwt-mdp-workshop`
 
     <img width="300" alt="image" src="Images/GCP_acc_04.png">
+
+7. 
 
 ## Optional: create Gitlab account.
 
