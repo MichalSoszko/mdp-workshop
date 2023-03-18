@@ -2,11 +2,12 @@
 ## Data Pipelines CLI: Setting up environment and loading data to dwh
 
 Welcome to the **GetInData Modern Data Platform** workshop - `session #1`. In this introductory tutorial you will:
-- create and deploy your own dbt project [data-pipelines-cli](https://data-pipelines-cli.readthedocs.io/en/latest/index.html) tool in `Vertex AI` environment
+- create your VertexAI notebook
+- deploy your dbt project with [data-pipelines-cli](https://data-pipelines-cli.readthedocs.io/en/latest/index.html) tool in `Vertex AI` environment
 - navigate through various DataOps tools in JupyterLab environment
 - create your working repository in Gitlab
-- navigate through Bigquery console and familiarize with exercises data
-- (optional) create your gcp account
+- navigate through Bigquery console and familiarize with data used during the workshop
+- (optional) create your GCP account
 - (optional) create your Gitlab account
 - (optional) create your Slack account
 
