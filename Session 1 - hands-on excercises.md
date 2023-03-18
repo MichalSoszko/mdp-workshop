@@ -66,7 +66,7 @@ In Modern Data Platform by GID, the `VertexAI` user-managed workbook is a main w
 
 BigQuery is a fully-managed cloud data warehouse service that enables users to store, analyze, and query large datasets using SQL-like syntax. It is part of the Google Cloud Platform and can handle petabyte-scale datasets with high performance and low latency. BigQuery is designed to be scalable, fast, and easy to use, and it supports a variety of data formats and integrations with other GCP services. It allows users to run complex analytical queries on large datasets using a familiar SQL interface, without having to worry about the underlying infrastructure.
 
-The MDP instance we are working with during this tutorial runs on Bigquery. In order to familiarize yourself with Bigquery proceed with the following steps:
+The MDP instance we are working with during this tutorial uses `Bigquery`. In order to familiarize yourself with the DWH, proceed with the following steps:
 
 1. Click on the following [link](https://console.cloud.google.com/bigquery?authuser=0&project=bdtw-mdp-workshop&ws=!1m0)
 
