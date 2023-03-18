@@ -80,7 +80,7 @@ The MDP instance we are working with during this tutorial runs on Bigquery. In o
 
     - Total number of sales broken down by product in descending order.
 
-    <img width="700" alt="image" src="Images/BQ_acc_02.png" >
+    <img width="500" alt="image" src="Images/BQ_acc_02.png" >
 
     Copy-paste the following query into the SQL Editor and press `Run`. Please note that in Bigquery you reference a table from a specific project using backquote marks:
 
@@ -93,7 +93,7 @@ The MDP instance we are working with during this tutorial runs on Bigquery. In o
     ORDER BY num_of_orders DESC
     ```
 
-    Using backquote marks is not obligatory when you are referencing tables stored in your main project like in the example provided below:
+    Using backquote marks is not obligatory. When you are referencing tables stored in your main project, like in the example provided below, you can use a regular notation:
     
     - The store’s top 10 customers with the highest average price per order.
 
