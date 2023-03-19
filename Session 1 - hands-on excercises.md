@@ -1,4 +1,5 @@
 # Session 1
+
 ## Data Pipelines CLI: Setting up environment and exploring dataset
 
 Welcome to the **GetInData Modern Data Platform** workshop - `session #1`. In this introductory tutorial you will:
