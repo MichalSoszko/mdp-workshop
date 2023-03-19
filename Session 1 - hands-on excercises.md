@@ -113,6 +113,8 @@ Normally, in order to kick-off and initialize your data transformation project, 
     python quickstart.py gitlab_username gitlab_email gitlab_repository_name
     ```
 
+    <img width="500" alt="image" src="Images/dbt_quickstart_01.png" > 
+
     The script will setup your personal gitlab profile, clone your repository and initialize your dbt project.
 
     a) Git will ask for your `https://gitlab.com` credentials: `Username` and Gitlab `password`. Your Username can be found on top-right corner of the Gitlab page (under the icon of your profile):
