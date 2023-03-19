@@ -20,7 +20,7 @@ For more versions and images check out [our public repo](https://github.com/geti
 
 # Exercise
 
-## 1. Setup your workging environment
+## 1. Setup your working environment
 
 In Modern Data Platform by GID, the `VertexAI` user-managed workbook is a main workspace for an analytics engineer. `Vertex AI notebook` is a web-based platform primarily designed for creating, editing, and running machine learning models on Google Cloud Platform. However, the scalable environment of Vertex AI notebook has also proved useful for developing computationally lightweight data transformation projects. It runs on top of a virtual machine instance on Google Cloud Platform. When you create a notebook instance, Google Cloud Platform provisions a virtual machine for you and installs all the necessary software and dependencies. You can then access the notebook instance using a web browser and start coding without having to worry about the underlying infrastructure.
 
