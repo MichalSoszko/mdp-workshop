@@ -19,7 +19,7 @@ For more versions and images check out [our public repo](https://github.com/geti
 
 # Exercise
 
-## Setting up environment
+## 1. Setup your workging environment
 
 In Modern Data Platform by GID, the `VertexAI` user-managed workbook is a main workspace for an analytics engineer. `Vertex AI notebook` is a web-based platform primarily designed for creating, editing, and running machine learning models on Google Cloud Platform. However, the scalable environment of Vertex AI notebook has also proved useful for developing computationally lightweight data transformation projects. It runs on top of a virtual machine instance on Google Cloud Platform. When you create a notebook instance, Google Cloud Platform provisions a virtual machine for you and installs all the necessary software and dependencies. You can then access the notebook instance using a web browser and start coding without having to worry about the underlying infrastructure.
 
@@ -55,13 +55,57 @@ In Modern Data Platform by GID, the `VertexAI` user-managed workbook is a main w
     <img width="500" alt="image" src="Images/VAI_acc_06.png" >
 
 
-## Create your Gitlab project
+
+
+
+## 2. Create your Gitlab project and clone it to your notebook
+
+GitLab is a web-based Git repository manager that provides a complete DevOps platform for source code management, continuous integration, deployment, monitoring, and more. In MDP we use it as our primary version control system and CICD orchestrator for every dbt project. In this short tutorial you will go through creating a base repository for your data transformations code. Your repo will be stored in a pre-configured group. This group has got several pre-defined variables and keys needed for CICD to synchronize the dbt project with other tools used as a part of MDP, ie. Apache Airflow, Datahub etc.
+
+1. Go to the Workshop Gitlab group page by copy-pasting the following link:
+
+    ```
+    https://gitlab.com/bdtw-mdp-workshop
+    ```
+
+2. In the main page click on `New project` and the create new project using `Create blank project` field.
+
+3. Provide your project's name. We recommend to use your `name-surname-project` naming convention, as in the following example:
+
+    <img width="500" alt="image" src="Images/Gitlab_project_01.png" >
+
+4. In your personal gitlab project landing page, click on `Clone` icon and the chose the `Clone with HTTPS` field:
+
+    <img width="500" alt="image" src="Images/Gitlab_project_02.png" >
+
+5. Navigate to your [Vertex AI notebook](https://console.cloud.google.com/vertex-ai/workbench/user-managed?authuser=0&project=bdtw-mdp-workshop), click on terminal:
+
+    <img width="500" alt="image" src="Images/Gitlab_project_03.png" >
+
+    and within Command Line Interface type:
+
+    ```
+    git clone << copy-paste the HTTPS address of your repository >>
+    ```
+
+     <img width="500" alt="image" src="Images/Gitlab_project_04.png" >   
+
+6. a) Git will ask for your `https://gitlab.com` credentials: `Username` and Gitlab `password`. Your Username can be found on top-right corner of the Gitlab page (under the icon of your profile):
+
+     <img width="500" alt="image" src="Images/Gitlab_project_05.png" > 
+
+    b) If you're logging to `Gitlab` with your `Google Account`, and you don't remember your Gitlab password, you can reset it through the profile editor. For that, click on your User Profile icon (top-right corner of the Gitlab page) and go to `Edit profile` page. On `User Settings` menu on the left side of the screen, choose `Password`, click on `I forgot my password` and proceed with the further instructions.
+
+      <img width="500" alt="image" src="Images/Gitlab_project_06.png" >    
+
+
+
+## 3. Initialize your data transformation project
 
 
 
 
-
-## Access Bigquery Project
+## 4. Access Bigquery Project
 
 BigQuery is a fully-managed cloud data warehouse service that enables users to store, analyze, and query large datasets using SQL-like syntax. It is part of the Google Cloud Platform and can handle petabyte-scale datasets with high performance and low latency. BigQuery is designed to be scalable, fast, and easy to use, and it supports a variety of data formats and integrations with other GCP services. It allows users to run complex analytical queries on large datasets using a familiar SQL interface, without having to worry about the underlying infrastructure.
 
@@ -118,7 +162,7 @@ The MDP instance we are working with during this tutorial uses `Bigquery`. In or
     - print the list of countries the users shop from. Is there anything that cought your attention regarding their names? (hint: this is actually an important question, since in next Session we will use country names for calculating taxes) 
 
 
-## Optional: create your GCP account and access our BigQuery project on Google Cloud Platform.
+## 5. Optional: create your GCP account and access our BigQuery project on Google Cloud Platform.
 
 1. Go to `google.com` and click on `sign in` icon on the top right corner of the web page screen.
 2. Click on `Create account` using `For my personal use` drop down option and proceed with account creation by filling up all necesary fields:
@@ -145,7 +189,7 @@ The MDP instance we are working with during this tutorial uses `Bigquery`. In or
 
 7. 
 
-## Optional: create Gitlab account.
+## 6. Optional: create Gitlab account.
 
 1. Copy-paste the following link into your web navigation bar:
 
