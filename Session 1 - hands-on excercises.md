@@ -34,7 +34,7 @@ In Modern Data Platform by GID, the `VertexAI` user-managed workbook is a main w
 
     <img width="400" alt="image" src="Images/VAI_acc_02.png" >
    
-5. In environment section, choose Debian 10, `Custome container` 
+5. In environment section, choose `Debian 10`, and then `Custom container` 
 
     <img width="500" alt="image" src="Images/VAI_acc_03.png" >
 
