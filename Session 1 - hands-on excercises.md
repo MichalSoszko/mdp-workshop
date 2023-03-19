@@ -58,7 +58,7 @@ In Modern Data Platform by GID, the `VertexAI` user-managed workbook is a main w
 
 
 
-## 2. Create your Gitlab project and clone it to your notebook
+## 2. Create your dbt repository in Gitlab and clone it to your notebook
 
 GitLab is a web-based Git repository manager that provides a complete DevOps platform for source code management, continuous integration, deployment, monitoring, and more. In MDP we use it as our primary version control system and CICD orchestrator for every dbt project. In this short tutorial you will go through creating a base repository for your data transformations code. Your repo will be stored in a pre-configured group. This group has got several pre-defined variables and keys needed for CICD to synchronize the dbt project with other tools used as a part of MDP, ie. Apache Airflow, Datahub etc.
 
@@ -68,13 +68,13 @@ GitLab is a web-based Git repository manager that provides a complete DevOps pla
     https://gitlab.com/bdtw-mdp-workshop
     ```
 
-2. In the main page click on `New project` and the create new project using `Create blank project` field.
+2. In the main page click on `New project` and then create a new gitlab project using `Create blank project` field.
 
 3. Provide your project's name. We recommend to use your `name-surname-project` naming convention, as in the following example:
 
     <img width="500" alt="image" src="Images/Gitlab_project_01.png" >
 
-4. In your personal gitlab project landing page, click on `Clone` icon and the chose the `Clone with HTTPS` field:
+4. In your personal gitlab project landing page, click on `Clone` icon and then chose the `Clone with HTTPS` field:
 
     <img width="500" alt="image" src="Images/Gitlab_project_02.png" >
 
@@ -94,16 +94,36 @@ GitLab is a web-based Git repository manager that provides a complete DevOps pla
 
      <img width="500" alt="image" src="Images/Gitlab_project_05.png" > 
 
-    b) If you're logging to `Gitlab` with your `Google Account`, and you don't remember your Gitlab password, you can reset it through the profile editor. For that, click on your User Profile icon (top-right corner of the Gitlab page) and go to `Edit profile` page. On `User Settings` menu on the left side of the screen, choose `Password`, click on `I forgot my password` and proceed with the further instructions.
+    b) If you're logging to `Gitlab` with your `Google Account`, and you don't remember your Gitlab password, you can reset it through the profile editor. For that, click on your `User Profile` icon (top-right corner of the Gitlab page) and go to `Edit profile` page. On `User Settings` menu on the left side of the screen, choose `Password`, click on `I forgot my password` and proceed with the further instructions.
 
       <img width="500" alt="image" src="Images/Gitlab_project_06.png" >    
 
 
 
-## 3. Initialize your data transformation project
+## 3. Initialize and explore the dbt project
 
+Our data transformation projects are carried using `dbt`. Every personal notebook created using Jupyter Images provided by the MDP administration has its own `dbt` instance installed, along with `DP Framework` libraries and couple of other popular code editing software (like `VSCode`, `CloudBeaver` etc.). Because we run `dbt` as a part of larger framework, the project creation and initialization is controlled by `DP Command Line Interface` (reminder: `DP Framework` coordinates data transformation, data ingestion, CICD, pipeline orchestration and data catalog sync). 
 
+Normally, in order to kick-off and initialize your data transformation project, you would have to run the `dp create`, the CLI script would then ask you a series of question regarding your project, dwh, schedule interval, ingestion sync etc. As an analytics engineer who went through the onboarding process you would be able to set-up the project without an effort. However, for this workshop we prepared a quickstart script that creates and initializes the dbt project for you.
 
+1. In your [Vertex AI notebook](https://console.cloud.google.com/vertex-ai/workbench/user-managed?authuser=0&project=bdtw-mdp-workshop) run `Terminal`
+2. Type the following line:
+
+    ```
+    python quickstart.py gitlab_username gitlab_email gitlab_repository_name
+    ```
+
+    The script will setup your personal gitlab profile, clone your repository and initialize your dbt project.
+
+    a) Git will ask for your `https://gitlab.com` credentials: `Username` and Gitlab `password`. Your Username can be found on top-right corner of the Gitlab page (under the icon of your profile):
+
+     <img width="500" alt="image" src="Images/Gitlab_project_05.png" > 
+
+    b) If you're logging to `Gitlab` with your `Google Account`, and you don't remember your Gitlab password, you can reset it through the profile editor. For that, click on your `User Profile` icon (top-right corner of the Gitlab page) and go to `Edit profile` page. On `User Settings` menu on the left side of the screen, choose `Password`, click on `I forgot my password` and proceed with the further instructions.
+
+      <img width="500" alt="image" src="Images/Gitlab_project_06.png" >  
+
+3. Click `+` icon on top-left side of your notebook screen and enter VSCode. You are now ready to explore your freshly created (any yet empty) dbt project.
 
 ## 4. Access Bigquery Project
 
