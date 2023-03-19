@@ -55,6 +55,9 @@ In Modern Data Platform by GID, the `VertexAI` user-managed workbook is a main w
 
     <img width="500" alt="image" src="Images/VAI_acc_06.png" >
 
+10. You can start exploring your personal workspace. 
+    Note: CloudBeaver (web browser version of Dbeaver, database manager and browser tool) has been pre-installed, however, at this point it is not supported within the notebooks due to authorisation restrictions. 
+
 ## 2. Create your repository for your dbt project in Gitlab
 
 GitLab is a web-based Git repository manager that provides a complete DevOps platform for source code management, continuous integration, deployment, monitoring, and more. In MDP we use it as our primary version control system and CICD orchestrator for every dbt project. In this short tutorial you will go through creating a base repository for your data transformations code. Your repo will be stored in a pre-configured group. This group has got several pre-defined variables and keys needed for CICD to synchronize the dbt project with other tools used as a part of MDP, ie. Apache Airflow, Datahub etc.
