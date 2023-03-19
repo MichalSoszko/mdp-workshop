@@ -125,7 +125,7 @@ Normally, in order to kick-off and initialize your data transformation project, 
 
     <img width="500" alt="image" src="Images/Gitlab_project_06.png" >  
 
-3. Click `+` icon on top-left side of your notebook screen and enter VSCode. You are now ready to explore your freshly created (any yet empty) dbt project.
+3. Click `+` icon on top-left side of your notebook screen and enter VSCode. You are now ready to explore your freshly created (and yet empty) dbt project.
 
 ## 4. Access Bigquery Project
 
