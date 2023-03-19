@@ -19,7 +19,7 @@ For more versions and images check out [our public repo](https://github.com/geti
 
 ## Before you start
 
-In order to proceed with the following tutorial you will need a Google account. If you don't have any, or you are not willing to provide your personal / corporate gmail address, please create new Google account dedicated to this Workshop, ie. `name.surname.bdtw.mdp.workshop@gmail.com` and send its name to the workshop leaders. Afterwards you will receive invitation to the Gitlab group and workshop's Slack channel where we will share all additional information, links or quick-fixes regarding the workshops. 
+To proceed with this tutorial, you will need a Google account. If you do not have one or are unwilling to use your personal or corporate Gmail address, please create a new Google account dedicated to this workshop (e.g., name.surname.bdtw.mdp.workshop@gmail.com) and send its name to the workshop leaders. Afterward, you will receive an invitation to the Gitlab group and workshop Slack channel where we will share additional information, links, or quick fixes related to the workshop.
 
 ## 1. Setup your working environment
 
