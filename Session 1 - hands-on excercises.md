@@ -54,11 +54,7 @@ In Modern Data Platform by GID, the `VertexAI` user-managed workbook is a main w
 
     <img width="500" alt="image" src="Images/VAI_acc_06.png" >
 
-
-
-
-
-## 2. Create your dbt repository in Gitlab and clone it to your notebook
+## 2. Create your repository for your dbt project in Gitlab
 
 GitLab is a web-based Git repository manager that provides a complete DevOps platform for source code management, continuous integration, deployment, monitoring, and more. In MDP we use it as our primary version control system and CICD orchestrator for every dbt project. In this short tutorial you will go through creating a base repository for your data transformations code. Your repo will be stored in a pre-configured group. This group has got several pre-defined variables and keys needed for CICD to synchronize the dbt project with other tools used as a part of MDP, ie. Apache Airflow, Datahub etc.
 
@@ -74,31 +70,7 @@ GitLab is a web-based Git repository manager that provides a complete DevOps pla
 
     <img width="500" alt="image" src="Images/Gitlab_project_01.png" >
 
-4. In your personal gitlab project landing page, click on `Clone` icon and then chose the `Clone with HTTPS` field:
-
-    <img width="500" alt="image" src="Images/Gitlab_project_02.png" >
-
-5. Navigate to your [Vertex AI notebook](https://console.cloud.google.com/vertex-ai/workbench/user-managed?authuser=0&project=bdtw-mdp-workshop), click on terminal:
-
-    <img width="500" alt="image" src="Images/Gitlab_project_03.png" >
-
-    and within Command Line Interface type:
-
-    ```
-    git clone << copy-paste the HTTPS address of your repository >>
-    ```
-
-     <img width="500" alt="image" src="Images/Gitlab_project_04.png" >   
-
-6. a) Git will ask for your `https://gitlab.com` credentials: `Username` and Gitlab `password`. Your Username can be found on top-right corner of the Gitlab page (under the icon of your profile):
-
-     <img width="500" alt="image" src="Images/Gitlab_project_05.png" > 
-
-    b) If you're logging to `Gitlab` with your `Google Account`, and you don't remember your Gitlab password, you can reset it through the profile editor. For that, click on your `User Profile` icon (top-right corner of the Gitlab page) and go to `Edit profile` page. On `User Settings` menu on the left side of the screen, choose `Password`, click on `I forgot my password` and proceed with the further instructions.
-
-      <img width="500" alt="image" src="Images/Gitlab_project_06.png" >    
-
-
+4. Your new repository is ready. 
 
 ## 3. Initialize and explore the dbt project
 
@@ -106,7 +78,10 @@ Our data transformation projects are carried using `dbt`. Every personal noteboo
 
 Normally, in order to kick-off and initialize your data transformation project, you would have to run the `dp create`, the CLI script would then ask you a series of question regarding your project, dwh, schedule interval, ingestion sync etc. As an analytics engineer who went through the onboarding process you would be able to set-up the project without an effort. However, for this workshop we prepared a quickstart script that creates and initializes the dbt project for you.
 
-1. In your [Vertex AI notebook](https://console.cloud.google.com/vertex-ai/workbench/user-managed?authuser=0&project=bdtw-mdp-workshop) run `Terminal`
+1. Navigate to your [Vertex AI notebook](https://console.cloud.google.com/vertex-ai/workbench/user-managed?authuser=0&project=bdtw-mdp-workshop), click on terminal:
+
+    <img width="500" alt="image" src="Images/Gitlab_project_03.png" >
+
 2. Type the following line:
 
     ```
@@ -125,7 +100,7 @@ Normally, in order to kick-off and initialize your data transformation project, 
 
     <img width="500" alt="image" src="Images/Gitlab_project_06.png" >  
 
-3. Click `+` icon on top-left side of your notebook screen and enter VSCode. You are now ready to explore your freshly created (and yet empty) dbt project.
+3. Click `+` icon on top-left side of your notebook screen and enter `VSCode`. You are now ready to explore your freshly created (and yet empty) dbt project.
 
 ## 4. Access Bigquery Project
 
