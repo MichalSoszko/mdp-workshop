@@ -113,7 +113,7 @@ Normally, in order to kick-off and initialize your data transformation project, 
     python quickstart.py gitlab_username gitlab_email gitlab_repository_name
     ```
 
-    <img width="500" alt="image" src="Images/dbt_quickstart_01.png" > 
+    <img width="700" alt="image" src="Images/dbt_quickstart_01.png" > 
 
     The script will setup your personal gitlab profile, clone your repository and initialize your dbt project.
 
@@ -123,7 +123,7 @@ Normally, in order to kick-off and initialize your data transformation project, 
 
     b) If you're logging to `Gitlab` with your `Google Account`, and you don't remember your Gitlab password, you can reset it through the profile editor. For that, click on your `User Profile` icon (top-right corner of the Gitlab page) and go to `Edit profile` page. On `User Settings` menu on the left side of the screen, choose `Password`, click on `I forgot my password` and proceed with the further instructions.
 
-      <img width="500" alt="image" src="Images/Gitlab_project_06.png" >  
+    <img width="500" alt="image" src="Images/Gitlab_project_06.png" >  
 
 3. Click `+` icon on top-left side of your notebook screen and enter VSCode. You are now ready to explore your freshly created (any yet empty) dbt project.
 
