@@ -34,11 +34,11 @@ In Modern Data Platform by GID, the `VertexAI` user-managed workbook is a main w
 
     <img width="400" alt="image" src="Images/VAI_acc_02.png" >
    
-5. In environment section, choose `Debian 10`, and then `Custom container` 
+5. In environment section, choose `Debian 10`, then `Custom container`... 
 
     <img width="500" alt="image" src="Images/VAI_acc_03.png" >
 
-    and provide a link to the Data Pipelines CLI image: 
+    ...and provide a link to the Data Pipelines CLI image: 
     ```
     gcr.io/getindata-images-public/jupyterlab-dataops@sha256:12e217ab88f823308214203628bfe72b0ad233aace3c982efdac023184eb2f79
     ```
