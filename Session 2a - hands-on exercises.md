@@ -75,5 +75,29 @@ The main rule for `dbt` is that we should avoid writing SQL code referencing dat
 
     If there were no mistakes, the summary compilation report should provide information about `2 sources` detected by `dbt`.
 
-## Add a CSV file to your data warehouse
+## Load a seed CSV file to your data warehouse
 
+In order to calculate VAT, we need information on the applicable VAT rates in the countries where purchases were made. We do not have such data in our raw tables. What we have is a CSV file - [seed_tax_rates.csv](CSV/seed_tax_rates.csv). Insteat of loading it manualy to Bigquery, we will put it into our dbt project as a `seed` file:
+
+1. Upload the [seed_tax_rates.csv](CSV/seed_tax_rates.csv) to `seeds` folder in your dbt project.
+
+    >Hint: You can drag & drop it from your local drive to VSCode Explorer
+
+2. In terminal type the command:
+    ```
+    dbt seed
+    ```
+    and inspect the resulting report. You should be able to see a similar output:
+
+    <img width="700" alt="image" src="Images/dbt_seeds_32.png" >
+    
+    This is the first resource that has been created with dbt. Dbt has created a table `seed_tax_rates` inside of your personal working schema and inserted 151 records inside. 
+    
+3. In Bigquery inspect your freshly created table within your `private_working_schema` by examining the schema and viewing data.
+
+    ```
+    select *
+    from <your_personal_working_schema>.seed_tax_rates
+    ```
+
+## Create models using `{{ source }}` and `{{ ref }}` functions
