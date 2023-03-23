@@ -73,7 +73,7 @@ GitLab is a web-based Git repository manager that provides a complete DevOps pla
 
 3. Provide your project's name. We recommend to use your `name-surname-project` naming convention, as in the following example:
 
-    <img width="500" alt="image" src="Images/Gitlab_project_01.png" >
+    <img width="700" alt="image" src="Images/Gitlab_project_01.png" >
 
 4. Your new repository is ready. 
 
