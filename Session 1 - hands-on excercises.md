@@ -125,7 +125,7 @@ The MDP instance we are working with during this tutorial uses `Bigquery`. In or
 
     - Total number of sales broken down by product in descending order.
 
-    <img width="500" alt="image" src="Images/BQ_acc_02.png" >
+    <img width="700" alt="image" src="Images/BQ_acc_02.png" >
 
     Copy-paste the following query into the SQL Editor and press `Run`. Please note that in Bigquery you reference a table from a specific project using backquote marks:
 
