@@ -223,4 +223,4 @@ dp docs-serve
 
 This will open internal dbt documentation page (note that you will be asked to grant permission for a pop-up window once the page is ready). Feel free to navigate and inspect every resource stored there. You will find graphical lineage icon on the right-bottom of the screen.
 
-    <img width="700" alt="image" src="Images/dbt_docs_01.png" >
+<img width="700" alt="image" src="Images/dbt_docs_01.png">
