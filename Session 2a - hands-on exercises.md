@@ -91,7 +91,7 @@ In order to calculate VAT, we need information on the applicable VAT rates in th
 
     <img width="700" alt="image" src="Images/dbt_seeds_32.png" >
     
-    This is the first resource that has been created with dbt. Dbt has created a table `seed_tax_rates` inside of your personal working schema and inserted 151 records inside. 
+    This is the first resource that has been created with dbt. Table `seed_tax_rates` can now be viewed inside of your personal working schema. 
     
 3. In Bigquery inspect your freshly created table within your `private_working_schema` by examining the schema and viewing data.
 
