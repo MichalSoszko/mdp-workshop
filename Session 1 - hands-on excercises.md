@@ -29,32 +29,32 @@ In Modern Data Platform by GID, the `VertexAI` user-managed workbook is a main w
 
 3. Click on `New Notebook` located in the top bar and then `Customize...`
 
-   <img width="400" alt="image" src="Images/VAI_acc_01.png" >
+   <img width="600" alt="image" src="Images/VAI_acc_01.png" >
 
 3. Type in notebook name (preferably your first and last name, example: `john-smith-workshops`) and press continue.
 
-    <img width="400" alt="image" src="Images/VAI_acc_02.png" >
+    <img width="600" alt="image" src="Images/VAI_acc_02.png" >
    
 5. In environment section, choose `Debian 10`, then `Custom container`... 
 
-    <img width="500" alt="image" src="Images/VAI_acc_03.png" >
+    <img width="700" alt="image" src="Images/VAI_acc_03.png" >
 
     ...and provide a link to the Data Pipelines CLI image: 
     ```
     gcr.io/getindata-images-public/jupyterlab-dataops@sha256:12e217ab88f823308214203628bfe72b0ad233aace3c982efdac023184eb2f79
     ```
 
-    <img width="500" alt="image" src="Images/VAI_acc_04.png" >
+    <img width="700" alt="image" src="Images/VAI_acc_04.png" >
 
 6. In machine configuration section, choose `n1-standard-1 machine 1vCPU/3.75GB RAM (~0.044 USD / hour)`
 
-    <img width="500" alt="image" src="Images/VAI_acc_05.png" >
+    <img width="700" alt="image" src="Images/VAI_acc_05.png" >
 
 7. Leave everything else on default.
 8. Click on `Create`
 9. Wait until it spins up correctly and click on `Open JupyterLab`
 
-    <img width="500" alt="image" src="Images/VAI_acc_06.png" >
+    <img width="700" alt="image" src="Images/VAI_acc_06.png" >
 
 10. You can start exploring your personal workspace. 
     Note: CloudBeaver (web browser version of Dbeaver, database manager and browser tool) has been pre-installed, however, at this point it is not supported within the notebooks due to authorisation restrictions. 
