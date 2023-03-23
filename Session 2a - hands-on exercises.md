@@ -157,6 +157,7 @@ In our example, for calculating VAT we need to join `order_items` with `users` t
     from <your_personal_working_schema>.model_order_items_with_country
     ```
 
+    > Hint: you could inspect table in search for null values. Data has not been cleaned (we are using raw tables) so you could expect some troubles... We will cover data quality checks in further session.
 
 ## Create models using `{{ ref }}` function
 
@@ -201,5 +202,25 @@ Having created our first model, we can now add tax rates to our `model_order_ite
     dbt run
     ```
 
-    Now, in the output dbt should execute 2 models. First, `order_items_with_country` and then `order_items_with_tax`. Note that `seed_tax_rates` has not been executed as seed files are loaded into dwh with different command (`dbt seed`). 
+    Now, in the output dbt should execute 2 models. First, `order_items_with_country` and then `order_items_with_tax`. Note that `seed_tax_rates` CSV has not been executed as seed files are loaded into dwh with different command (`dbt seed`). 
 
+4. In Bigquery inspect your freshly created table within your `private_working_schema` by examining the schema and viewing data
+
+    ```
+    select *
+    from <your_personal_working_schema>.order_items_with_tax
+    ```
+
+    > Hint: data quality issues existing in `order_items_with_country` will be passed further in downstream models. This will result in incomplete VAT calculations. 
+
+### Congrats!
+
+You have created a simple end-to-end data pipeline using dbt. The data has some issues though, but we will cover this part later. At this point you can preview graphical lineage of your dbt project by typing in the terminal:
+
+```
+dp docs-serve
+```
+
+This will open internal dbt documentation page (note that you will be asked to grant permission for a pop-up window once the page is ready). Feel free to navigate and inspect every resource stored there. You will find graphical lineage icon on the right-bottom of the screen.
+
+    <img width="700" alt="image" src="Images/dbt_docs_01.png" >
