@@ -130,7 +130,7 @@ Let's put some tests to `model_order_items_with_tax`.
 5. The task: Experiment and add couple more built-in generic tests to other resources in your project. For more detailed instructions about seeds YAML properties file please refer to dbt documentation: https://docs.getdbt.com/reference/seed-properties
 
 
-## Create and apply your custom generic tests
+## Create and apply your custom generic test
 
 Like it was mentioned earlier, dbt allows to create generic test as a macro using jinja functions. This is particulary useful while you want to apply a test with custom logic for broader set of tables and products. In this section we will create a simple generic test and apply it on our selected model. 
 
@@ -184,10 +184,12 @@ The generic test will inspect numerical values stored in choosen `table.column` 
           - is_positive_value
     ```
 
-4. Run tests with the following command
+    The following lines will add `is_positive_value` custom generic test defined in `macros/generic_tests` folder to `order_items_sale_price` column. The result of the test will tell us, whether all values stored as sale_price are positive (there is only an income) or there are some negative numbers indicating ie. refunds.
+
+4. Run tests with the following command and inspect the output.
 
     ```
     dbt test --select model_order_items_with_tax
     ```
 
-You can read more about Jinja macros in dbt in the documentation page https://docs.getdbt.com/docs/build/jinja-macros
+You can read more about Jinja macros and custom generic tests in dbt in the documentation page https://docs.getdbt.com/docs/build/jinja-macros
