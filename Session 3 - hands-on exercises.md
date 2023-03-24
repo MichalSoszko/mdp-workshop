@@ -81,35 +81,35 @@ A `Staging area` is a transformation layer where data is cleaned (by formating, 
 
     > Hint2: Use Bigquery to check schema for `raw_data.users` table.
 
-    <details>
-    <summary>Preview example of the resulting SQL statement</summary>
-    <br>
-    <pre>
-    with source as (
-      select * from {{ source('raw_data', 'users') }}
-    ),
-    cleaned as (
-        select
-            id                  user_id,
-            first_name          user_first_name,
-            last_name           user_last_name,
-            email               user_email,
-            age                 user_age,
-            gender              user_gender,
-            state               user_address_state,
-            street_address      user_street_address,
-            postal_code         user_postal_code,
-            city                user_city,
-            country             user_country,
-            latitude            user_geo_latitude,
-            longitude           user_geo_longitude,
-            traffic_source      user_acc_traffic_source,
-            created_at          user_acc_created_at
-        from source
-    )
-    select * from cleaned
-    </pre>
-    </details>
+<details>
+<summary>Preview example of the resulting SQL statement</summary>
+<br>
+<pre>
+with source as (
+    select * from {{ source('raw_data', 'users') }}
+),
+cleaned as (
+    select
+        id                  user_id,
+        first_name          user_first_name,
+        last_name           user_last_name,
+        email               user_email,
+        age                 user_age,
+        gender              user_gender,
+        state               user_address_state,
+        street_address      user_street_address,
+        postal_code         user_postal_code,
+        city                user_city,
+        country             user_country,
+        latitude            user_geo_latitude,
+        longitude           user_geo_longitude,
+        traffic_source      user_acc_traffic_source,
+        created_at          user_acc_created_at
+    from source
+)
+select * from cleaned
+</pre>
+</details>
 
 9. Create the third staging model, this time for our `seed_tax_rates` CSV file. Call it `stg_tax_rates.sql`. Put the following code inside and perform `dbt compile` check:
     
@@ -147,30 +147,30 @@ An `Intermediate area` is a transformation layer where we apply complex conversi
 
     >Note: New model should be referencing staging models created in previous chapter
 
-    <details>
-    <summary>Preview example of the resulting SQL statement</summary>
-    <br>
-    <pre>
-    with order_items as (
-        select * from {{ ref('stg_order_items') }}
-    ),
-    users as (
-        select * from {{ ref('stg_users') }}
-    )
-    select
-        oi.order_item_id,
-        oi.order_id,
-        oi.user_id,
-        oi.product_id,
-        oi.order_status,
-        oi.order_item_sale_price,
-        u.user_country
-    from
-        order_items as oi
-    left join
-        users as u on oi.user_id = u.user_id
-    </pre>
-    </details>
+<details>
+<summary>Preview example of the resulting SQL statement</summary>
+<br>
+<pre>
+with order_items as (
+    select * from {{ ref('stg_order_items') }}
+),
+users as (
+    select * from {{ ref('stg_users') }}
+)
+select
+    oi.order_item_id,
+    oi.order_id,
+    oi.user_id,
+    oi.product_id,
+    oi.order_status,
+    oi.order_item_sale_price,
+    u.user_country
+from
+    order_items as oi
+left join
+    users as u on oi.user_id = u.user_id
+</pre>
+</details>
 
 4. Compile the dbt project to check for a presence of errors. At this point it would be reasonable to run the new part of the pipeline as well. For that you can use the following command:
 
@@ -197,66 +197,66 @@ A `mart layer` is a type of transformation layer that is used to build a data mo
 
     > Note: dm_order_items should be referencing 1 staging model and 1 intermediate model.
 
-    <details>
-    <summary>Preview an example of SQL statement here</summary>
+<details>
+<summary>Preview an example of SQL statement here</summary>
 
-    <pre>
-    with _int_order_items_with_country as (
-        select * from {{ ref( 'int_order_items_with_country' ) }}
-    ),
-    tax_rates as (
-        select * from {{ ref( 'stg_tax_rates' ) }}
-    )
-    select
-        order_item_id,
-        order_id,
-        user_id,
-        product_id,
-        order_status,
-        order_item_sale_price,
-        user_country,
-        tr.tax_rate,
-        round(order_item_sale_price * (tr.tax_rate / 100), 2) as order_items_sale_VAT
-    from
-        _int_order_items_with_country as oi
-    left join
-        tax_rates as tr on oi.user_country = tr.country_cleaned
-    </pre>
-    </details>
+<pre>
+with _int_order_items_with_country as (
+    select * from {{ ref( 'int_order_items_with_country' ) }}
+),
+tax_rates as (
+    select * from {{ ref( 'stg_tax_rates' ) }}
+)
+select
+    order_item_id,
+    order_id,
+    user_id,
+    product_id,
+    order_status,
+    order_item_sale_price,
+    user_country,
+    tr.tax_rate,
+    round(order_item_sale_price * (tr.tax_rate / 100), 2) as order_items_sale_VAT
+from
+    _int_order_items_with_country as oi
+left join
+    tax_rates as tr on oi.user_country = tr.country_cleaned
+</pre>
+</details>
 
-    <details>
-    <summary>Preview an example of YAML config here</summary>
+<details>
+<summary>Preview an example of YAML config here</summary>
 
-    <pre>
-    version: 2
-    <br>
-    models:
-    - name: dm_order_items
-      description: "
-      ## Order items with calculated VAT 
-    <br>
-      This is the `order_items` model enhanced with  <br>    
-        - country column taken from `users` model<br>  
-        - tax rates values taken from `seed_tax_rates` CSV file"<br>
-      columns:
-        - name: order_item_id
-        description: 'Unique id of the ordered item, primary key'
-        tests:
-            - unique
-            - not_null<br>
-        - name: order_status
-        description: Current status of the order
-        tests:
-            - accepted_values:
-                values: ['Shipped', 'Complete', 'Cancelled', 'Processing', 'Returned']<br>
-        - name: order_item_sale_price
-        description: "Item's sale price"
-        tests:
-            - is_positive_value<br>
-        - name: order_item_sale_vat
-        description: 'Calculated VAT for item sold within the order'
-    </pre>
-    </details>
+<pre>
+version: 2
+<br>
+models:
+- name: dm_order_items
+    description: "
+    ## Order items with calculated VAT 
+<br>
+    This is the `order_items` model enhanced with  <br>    
+    - country column taken from `users` model<br>  
+    - tax rates values taken from `seed_tax_rates` CSV file"<br>
+    columns:
+    - name: order_item_id
+    description: 'Unique id of the ordered item, primary key'
+    tests:
+        - unique
+        - not_null<br>
+    - name: order_status
+    description: Current status of the order
+    tests:
+        - accepted_values:
+            values: ['Shipped', 'Complete', 'Cancelled', 'Processing', 'Returned']<br>
+    - name: order_item_sale_price
+    description: "Item's sale price"
+    tests:
+        - is_positive_value<br>
+    - name: order_item_sale_vat
+    description: 'Calculated VAT for item sold within the order'
+</pre>
+</details>
 
 4. Compile the dbt project to check for a presence of errors. At this point it would be reasonable to run the new part of the pipeline as well. For that you can use the following command:
 
