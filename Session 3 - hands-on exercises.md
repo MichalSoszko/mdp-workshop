@@ -8,7 +8,7 @@ By the end of this tutorial, you will learn how to:
 - improve your dbt pipeline by using modern project structuring conventions
 - apply jinja macro in your SQL code
 - publish your work to DEV using Git and CICD
-- connect your data with Looker Studio to create simple reports
+- review the pipeline execution results in data catalog and connect data with a BI tool
 
 Target environment will be Google Cloud Platform's: `BigQuery & Data Studio`, `Vertex AI Managed Notebook`, `VSCode` as IDE. 
 
@@ -199,7 +199,7 @@ A `mart layer` is a type of transformation layer that is used to build a data mo
 
     <details>
     <summary>Preview an example of SQL statement here</summary>
-    <br>
+
     <pre>
     with _int_order_items_with_country as (
         select * from {{ ref( 'int_order_items_with_country' ) }}
@@ -216,7 +216,7 @@ A `mart layer` is a type of transformation layer that is used to build a data mo
         order_item_sale_price,
         user_country,
         tr.tax_rate,
-        round(order_item_sale_price * (tr.tax_rate / 100), 2) as order_items_sale_VAT,
+        round(order_item_sale_price * (tr.tax_rate / 100), 2) as order_items_sale_VAT
     from
         _int_order_items_with_country as oi
     left join
@@ -226,7 +226,7 @@ A `mart layer` is a type of transformation layer that is used to build a data mo
 
     <details>
     <summary>Preview an example of YAML config here</summary>
-    <br>
+
     <pre>
     version: 2
     <br>
@@ -264,4 +264,8 @@ A `mart layer` is a type of transformation layer that is used to build a data mo
     dbt run --select +dm_order_items
     ```
 
-5. If the pipeline succeeds you can remove all SQL and YAML files from the `models` main folder, leaving only models stored in layer subdirectories. Also, you can preview resulting views in Bigquery.
+5. If the pipeline succeeds you can remove all SQL and YAML files from the `models` main folder, leaving only models stored in layer subdirectories. Also, you can preview resulting views in Bigquery. 
+
+After performing steps 1-5 your project structure should now look similar to the example below:
+
+<img width="300" alt="image" src="Images/dbt_refactor_04.png" >
