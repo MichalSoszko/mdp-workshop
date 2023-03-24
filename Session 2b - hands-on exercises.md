@@ -94,7 +94,7 @@ Let's put some tests to `model_order_items_with_tax`.
 
 
     models:
-      - name: model_order_items_with_tax
+    - name: model_order_items_with_tax
     
       columns:
       - name: order_item_id
@@ -170,7 +170,7 @@ The generic test will inspect numerical values stored in choosen `table.column` 
 
 
     models:
-      - name: model_order_items_with_tax
+    - name: model_order_items_with_tax
     
       columns:
       - name: order_item_id
