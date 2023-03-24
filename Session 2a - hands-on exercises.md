@@ -208,7 +208,7 @@ Having created our first model, we can now add tax rates to our `model_order_ite
 
     ```
     select *
-    from <your_personal_working_schema>.order_items_with_tax
+    from <your_personal_working_schema>.model_order_items_with_tax
     ```
 
     > Hint: data quality issues existing in `order_items_with_country` will be passed further in downstream models. This will result in incomplete VAT calculations. 
