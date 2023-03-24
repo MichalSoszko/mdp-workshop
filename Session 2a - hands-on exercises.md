@@ -11,7 +11,7 @@ By the end of this tutorial, you will learn how to:
 
 Target environment will be Google Cloud Platform's: `BigQuery & Data Studio`, `Vertex AI Managed Notebook`, `VSCode` as IDE. 
 
-This tutorial uses our DataOps JupyterLab image 1.0.9.
+This tutorial uses our DataOps JupyterLab image gcp-1.5.0..
 For more versions and images check out [our public repo](https://github.com/getindata/jupyter-images/tree/master/jupyterlab-dataops).
 
 

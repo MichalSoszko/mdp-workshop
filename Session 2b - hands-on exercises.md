@@ -5,21 +5,21 @@
 Welcome to the **GetInData Modern Data Platform** workshop hands-on `session 2b`. 
 
 By the end of this tutorial, you will learn how to:
-- how to apply built-in `generic test` to your dbt resources
-- how to create and apply your custom singular tests
-- how to create and apply your custom generic tests
+- apply built-in `generic test` to your dbt resources
+- create and apply your custom singular tests
+- create and apply your custom generic tests
 - add column and table level descriptions to your dbt resources
 
 Target environment will be Google Cloud Platform's: `BigQuery & Data Studio`, `Vertex AI Managed Notebook`, `VSCode` as IDE. 
 
-This tutorial uses our DataOps JupyterLab image 1.0.9.
+This tutorial uses our DataOps JupyterLab image gcp-1.5.0.
 For more versions and images check out [our public repo](https://github.com/getindata/jupyter-images/tree/master/jupyterlab-dataops).
 
 # Exercises
 
 ## Introduction
 
-In dbt test is a select statement representing assertion about your models. Tests are constructed in a way that they fail whenever SQL statement returns any record. So, for example, if we test a column for a presence of null values, we will write a query that returns rows where the null value is present. If the output of the query empty - no records were found, the test will pass, and there are no nulls in our column. In the case where the query returns records (rows, where tested column is nullified) - test fails.
+In dbt test is a select statement representing assertion about your models. Tests are constructed in a way that they fail whenever SQL statement returns any record. So, for example, if we test a column for a presence of null values, we will write a query that returns rows where the null value is present. If the output of the query is empty - no records were found, the test will pass, and thus we know there are no nulls in our column. In the case where the query returns records (rows, where tested column is nullified) - test fails.
 You can put a test on every dbt resource: sources, seeds, models and snapshots.
 
 ## Create and apply custom singular test

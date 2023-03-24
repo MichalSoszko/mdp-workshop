@@ -10,7 +10,7 @@ Welcome to the **GetInData Modern Data Platform** workshop - `session #1`. In th
 
 For today's exercises the target environment will be Google Cloud Platform's: `BigQuery`, `Vertex AI Managed Notebook` and `VSCode` as IDE.
 
-This tutorial uses our DataOps JupyterLab XXXXXXXXXXXXX.
+This tutorial uses our DataOps JupyterLab image gcp-1.5.0.
 For more versions and images check out [our public repo](https://github.com/getindata/jupyter-images/tree/master/jupyterlab-dataops).
 
 **Note**: if you're new to data-pipelines-cli and want to know more about the library, check the [documentation](https://data-pipelines-cli.readthedocs.io/en/latest/index.html).
