@@ -32,7 +32,7 @@ For better understanding we will first create a custom singular test and apply i
 
     ```
     with tested_order_items as (
-        select * from {{ ref('model_order_items_with_tax') }}
+        select * from {{ ref('model_order_items_with_country') }}
     ), 
     precalc as (
         select 
