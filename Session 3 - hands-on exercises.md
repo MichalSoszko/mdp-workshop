@@ -232,29 +232,29 @@ version: 2
 <br>
 models:
 - name: dm_order_items
-    description: "
-    ## Order items with calculated VAT 
+  description: "
+  ## Order items with calculated VAT 
 <br>
-    This is the `order_items` model enhanced with  <br>    
-    - country column taken from `users` model<br>  
-    - tax rates values taken from `seed_tax_rates` CSV file"<br>
-    columns:
+  This is the `order_items` model enhanced with  <br>    
+  - country column taken from `users` model<br>  
+  - tax rates values taken from `seed_tax_rates` CSV file"<br>
+  columns:
     - name: order_item_id
-    description: 'Unique id of the ordered item, primary key'
-    tests:
+      description: 'Unique id of the ordered item, primary key'
+      tests:
         - unique
         - not_null<br>
     - name: order_status
-    description: Current status of the order
-    tests:
+      description: Current status of the order
+      tests:
         - accepted_values:
             values: ['Shipped', 'Complete', 'Cancelled', 'Processing', 'Returned']<br>
     - name: order_item_sale_price
-    description: "Item's sale price"
-    tests:
+      description: "Item's sale price"
+      tests:
         - is_positive_value<br>
     - name: order_item_sale_vat
-    description: 'Calculated VAT for item sold within the order'
+      description: 'Calculated VAT for item sold within the order'
 </pre>
 </details>
 
