@@ -196,3 +196,63 @@ You can read more about Jinja macros and custom generic tests in dbt in the docu
 
 
 ## Add column and table level description to dbt models
+
+Adding descriptions to your tables and columns on early stage of data transformation project helps with building project documentation in future. In this short section you will add docs to the `model_order_items_with_tax` using different description modes.
+
+1. In `models` folder edit YAML file called `model_order_items_with_tax.yml` and add new lines of code:
+
+    ```
+    version: 2
+
+
+    models:
+    - name: model_order_items_with_tax
+      description: "
+      ## Order items with calculated VAT
+      
+      This is the `order_items` model enhanced with 
+        
+        - country column taken from `users` model 
+        - tax rates values taken from `seed_tax_rates` CSV file"
+    
+      columns:
+        - name: order_item_id
+          description: 'Unique id of the ordered item, primary key'
+          tests:
+          - unique
+          - not_null
+    
+        - name: order_item_sale_price
+          description: "Item's sale price"
+          tests:
+          - is_positive_value
+
+        - name: order_item_sale_vat
+          description: 'Calculated VAT for item sold within the order'
+    ```
+
+2. In ordr to check whether the documentation has been added correctly compile the project. Run the following command:
+
+    ```
+    dbt compile
+    ```
+
+    ... and inspect results. If there are no errors, docs has been implemented succesfully.
+
+3. You can now preview your documented models using internal dbt docs generator:
+
+    ```
+    dp docs-serve
+    ```
+
+    Note: if you previously launched the dp docs-serve command you don't have to do it for the second time. In that you will need to update existing docs by running the following command:
+
+    ```
+    dbt docs generate
+    ```
+
+4. Exercise: Try adding your own description to your models.
+
+You can find more information about project documenting within dbt here: https://docs.getdbt.com/docs/collaborate/documentation 
+
+### This concludes the exercises planed for this Section!
