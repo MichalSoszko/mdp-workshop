@@ -213,6 +213,7 @@ Adding descriptions to your tables and columns on early stage of data transforma
       This is the `order_items` model enhanced with 
         
         - country column taken from `users` model 
+        
         - tax rates values taken from `seed_tax_rates` CSV file"
     
       columns:
