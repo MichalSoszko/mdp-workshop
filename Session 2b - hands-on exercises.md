@@ -193,3 +193,6 @@ The generic test will inspect numerical values stored in choosen `table.column` 
     ```
 
 You can read more about Jinja macros and custom generic tests in dbt in the documentation page https://docs.getdbt.com/docs/build/jinja-macros
+
+
+## Add column and table level description to dbt models
