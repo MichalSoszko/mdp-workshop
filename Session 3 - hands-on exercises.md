@@ -216,7 +216,7 @@ select
     order_item_sale_price,
     user_country,
     tr.tax_rate,
-    round(order_item_sale_price * (tr.tax_rate / 100), 2) as order_items_sale_VAT
+    round(order_item_sale_price * (tr.Tax_Rate / (100 + tr.Tax_Rate), 2) as order_items_sale_VAT
 from
     _int_order_items_with_country as oi
 left join
@@ -269,3 +269,84 @@ models:
 After performing steps 1-5 your project structure should now look similar to the example below:
 
 <img width="300" alt="image" src="Images/dbt_refactor_04.png" >
+
+### Setting up materialization type for data transformation layers
+
+The `dbt_project.yml` is a configuration file that specifies project-level settings and options for a dbt project. In our modern data platform setup this file has been pre-configured, but it is up to user whether he wants to modify the config according to his needs. In case of model materialization the user can specify one of the three possible options: `view`, `ephemeral` and `table`.
+
+1. In the root folder of your project, locate and edit `dbt_project.yml` file.
+
+    In the bottom section of the file the global configuration for all models have been specified as follows:
+
+    ```
+    models:
+      michal_soszko_project:
+        01_staging:
+          +materialized: view
+          +schema: msoszko_bdtw_workshop_01_staging
+        02_intermediate:
+          +materialized: ephemeral
+          +schema: msoszko_bdtw_workshop_02_intermediate
+        03_mart:
+          +materialized: table
+          +schema: msoszko_bdtw_workshop_03_mart
+    ```
+
+2. Exercise: change materialization to `table` in for all data transformation layers defined in the project.
+
+3. Execute the pipeline locally by running the `dbt run` command.
+
+You can read more about model materializations in https://docs.getdbt.com/docs/build/materializations
+
+## Apply Jinja macro in your SQL code
+
+Jinja macros are reusable pieces of code that are written in Jinja, a templating language used by dbt. They are similar to functions in other programming languages. In this simple example we will create a macro that takes `gross amount`, `tax rate` and return VAT with a given `precision` (set by default as 2) using to the formula:
+
+VAT amount = gross amount * (tax rate / (100 + tax rate))
+
+1. In macros folder create new file called `calculate_VAT.sql`
+
+2. Add the following snippet of code to a newly created SQL file:
+
+    ```
+    {% macro calculate_VAT(gross_amount, tax_rate, precision=2) %}
+        round({{ gross_amount }} * ({{ tax_rate }} / (100 + {{ tax_rate }})), {{ precision }})
+    {% endmacro %}
+    ```
+
+3. Exercise: In `models/03_mart/dm_order_items.sql` file add the following line to the select statement:
+
+    ```
+    {{ calculate_VAT('order_item_sale_price', 'tr.tax_rate') }}   as order_items_sale_VAT_macro
+    ```
+
+    You can delete the order_items_sale_VAT column, or leave it for comparison.
+
+<details>
+<summary>The resulting model should now look as follows</summary>
+<pre>
+with _order_items_with_country as (
+    select * from {{ ref( 'int_order_items_with_country' ) }}
+),
+tax_rates as (
+    select * from {{ ref( 'stg_tax_rates' ) }}
+)<br>
+select
+    order_item_id,
+    order_id,
+    user_id,
+    product_id,
+    order_status,
+    order_item_sale_price,
+    user_country,
+    tr.tax_rate,<br>
+    round(order_item_sale_price * (tr.Tax_Rate / (100 + tr.Tax_Rate), 2)      as order_items_sale_VAT,
+    {{ calculate_VAT('order_item_sale_price', 'tr.tax_rate') }}   as order_items_sale_VAT_macro<br>
+from
+    _order_items_with_country as oi
+left join
+    tax_rates as tr on oi.user_country = tr.country_cleaned
+</pre>
+</details>
+
+    Note that whenever we call a marco wthin the SQL code in dbt, we need to put it in a double `{{ }}` brackets and pass the variables in quotes.
