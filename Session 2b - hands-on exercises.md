@@ -161,7 +161,7 @@ The generic test will inspect numerical values stored in choosen `table.column` 
     {% endtest %}
     ```
 
-    The code above defines a macro of type `test` called `is_positive_value`. This macro uses two variables called `model` and `column_name`. These are important variable names and should not be changed as they allow this test to be applied within dbt model YAML metaconfig. Notice, we call variables within the SQL code referencing them with double `{{ }}` notation. 
+    The code above defines a macro of type `test` called `is_positive_value`. This macro uses two variables called `model` and `column_name`. These are important variable names and should not be changed as they allow this test to be applied within dbt model YAML metaconfig. Notice, in dbt, we call variables within the SQL code referencing them with double `{{ }}` notation. 
 
 3. In `models` folder edit YAML file called `model_order_items_with_tax.yml` and add new lines of code:
 
