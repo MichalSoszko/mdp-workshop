@@ -162,7 +162,7 @@ It is a dataset which resembles a typical e-commerce shop data warehouse, with e
 
 For example:
     
-    - find out whether there is a difference between `sale_price`, `retail_price` and `cost`?
-    - did all users who created website events made a purchase?
-    - are there any `null` values regarding `sale_price`, `retail_price` or `cost`?
-    - print the list of countries the users shop from. Is there anything that cought your attention regarding their names? (hint: this is actually an important question, since in next Session we will use country names for calculating taxes) 
+ - find out whether there is a difference between `sale_price`, `retail_price` and `cost`?
+ - did all users who created website events made a purchase?
+ - are there any `null` values regarding `sale_price`, `retail_price` or `cost`?
+ - print the list of countries the users shop from. Is there anything that cought your attention regarding their names? (hint: this is actually an important question, since in next Session we will use country names for calculating taxes) 
