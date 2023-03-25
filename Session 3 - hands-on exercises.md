@@ -216,7 +216,7 @@ select
     order_item_sale_price,
     user_country,
     tr.tax_rate,
-    round(order_item_sale_price * (tr.Tax_Rate / (100 + tr.Tax_Rate), 2) as order_items_sale_VAT
+    round(order_item_sale_price * (tr.tax_rate / (100 + tr.tax_rate)), 2) as order_items_sale_VAT
 from
     _int_order_items_with_country as oi
 left join
@@ -340,7 +340,7 @@ select
     order_item_sale_price,
     user_country,
     tr.tax_rate,<br>
-    round(order_item_sale_price * (tr.Tax_Rate / (100 + tr.Tax_Rate), 2)      as order_items_sale_VAT,
+    round(order_item_sale_price * (tr.tax_rate / (100 + tr.tax_rate)), 2)      as order_items_sale_VAT,
     {{ calculate_VAT('order_item_sale_price', 'tr.tax_rate') }}   as order_items_sale_VAT_macro<br>
 from
     _order_items_with_country as oi

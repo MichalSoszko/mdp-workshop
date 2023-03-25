@@ -204,18 +204,18 @@ Having created our first model, we can now add tax rates to our `model_order_ite
 
     Now, in the output dbt should execute 2 models. First, `order_items_with_country` and then `order_items_with_tax`. Note that `seed_tax_rates` CSV has not been executed as seed files are loaded into dwh with different command (`dbt seed`). 
 
-4. In Bigquery inspect your freshly created table within your `private_working_schema` by examining the schema and viewing data
+4. In Bigquery inspect your freshly created table within your `private_working_schema` by examining the schema and viewing data.
 
     ```
     select *
     from <your_personal_working_schema>.model_order_items_with_tax
     ```
 
-    > Hint: data quality issues existing in `order_items_with_country` will be passed further in downstream models. This will result in incomplete VAT calculations. 
+    > Hint: There may be some data quality issues in `order_items_with_country`. If they exist, they will be passed further in downstream models.
 
 ### Congrats!
 
-You have created a simple end-to-end data pipeline using dbt. The data has some issues though, but we will cover this part later. At this point you can preview graphical lineage of your dbt project by typing in the terminal:
+You have created a simple end-to-end data pipeline using dbt. The data may have some issues though, but we will cover this part later. At this point you can preview graphical lineage of your dbt project by typing in the terminal:
 
 ```
 dp docs-serve
