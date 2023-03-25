@@ -132,7 +132,7 @@ Let's put some tests to `model_order_items_with_tax`.
 
 ## Create and apply your custom generic test
 
-Like it was mentioned earlier, dbt allows to create generic test as a macro using jinja functions. This is particulary useful while you want to apply a test with custom logic for broader set of tables and products. In this section we will create a simple generic test and apply it on our selected model. 
+Like it was mentioned earlier, dbt allows to create generic test as a macro using jinja functions. This is particulary useful while you want to apply a test with custom logic for broader set of tables and columns. In this section we will create a simple generic test and apply it on our selected model. 
 
 The generic test will inspect numerical values stored in choosen `table.column` and verify if they are positive.
 
