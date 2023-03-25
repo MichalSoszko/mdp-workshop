@@ -16,7 +16,7 @@ This tutorial uses our DataOps JupyterLab image gcp-1.5.0.
 For more versions and images check out [our public repo](https://github.com/getindata/jupyter-images/tree/master/jupyterlab-dataops).
 
 
-# Exercises
+# Tutorials
 
 ## Introduction
 
