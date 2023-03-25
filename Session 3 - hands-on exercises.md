@@ -359,3 +359,5 @@ TODO
 ## Review the pipeline execution results with Data Catalog and BI Tool
 
 TODO
+
+## Bonus exercise: Fix the data quality
