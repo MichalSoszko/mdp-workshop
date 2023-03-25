@@ -349,7 +349,8 @@ left join
 </pre>
 </details>
 
-    Note that whenever we call a marco wthin the SQL code in dbt, we need to put it in a double `{{ }}` brackets and pass the variables in quotes.
+    
+    Note that whenever we call a marco wthin the SQL code in dbt, we need to put it in a double `{{ }}` brackets and pass the variables in quotes. As this is only a simple example, bear in mind that macros can be very complex and they can be used to build a flexible SQL code.
 
 ## Publish your code to Gitlab and inspect results of CICD 
 
