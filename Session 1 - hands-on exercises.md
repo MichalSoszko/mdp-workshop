@@ -161,6 +161,7 @@ The MDP instance we are working with during this tutorial uses `Bigquery`. In or
 It is a dataset which resembles a typical e-commerce shop data warehouse, with events, orders, inventory_items and users facts tables and 2 dimension tables: distribution_centers and order_items. Those tables could've been extracted from different companies' backend applications' databases and collected to a single schema.
 
 For example:
+    
     - find out whether there is a difference between `sale_price`, `retail_price` and `cost`?
     - did all users who created website events made a purchase?
     - are there any `null` values regarding `sale_price`, `retail_price` or `cost`?
