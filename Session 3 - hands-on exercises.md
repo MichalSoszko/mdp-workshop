@@ -354,10 +354,85 @@ Note that whenever we call a marco wthin the SQL code in dbt, we need to put it 
 
 ## Publish your code to Gitlab and inspect results of CICD 
 
-TODO
+To transfer results of your local work and publish it into remote repository where you store the code of the project, you need to use version control system. In our Modern Data Platform we use Gitlab. Your project has been created by you during Session 1. Now it is time to commit your work. After pushing your code to remote repository, the CICD pipeline launuches. During CICD phase, the gitlab runner triggers a virtual machine with its own dbt instance. Your code is compiled and checked for errors. After all checks are passed the code (after some transformations) is distributed across other tools that are part of the MDP - data catalog, scheduler, ingestion tool etc. As we directly commited to the main branch, the code may be treated as "production" now. 
 
-## Review the pipeline execution results with Data Catalog and BI Tool
+> Note: There are many strategies on how to manage `local` / `dev` / `prod` environments on Gitlab. This topic is, however, out of scope for this webinar.
 
-TODO
+In order to commit your work to remote you can use either command line or VSCode source control tab. We will start with VSCode.
+
+### Commiting to remote repository using VSCode
+
+1. In VSCode, locate and click on the source contril icon.
+
+    <img width="500" alt="image" src="Images/gitlab_commit_01.png" >
+
+2. Inspect changes in your code by viewing the changed models, then stage all changes, or discard them. 
+
+3. Press the `+` sign and stage all changes, then fill in a message field and press `Commit`
+
+    <img width="500" alt="image" src="Images/gitlab_commit_02.png" >
+
+4. VSCode is ready to synchronize your local repository and the remote one. In order to do so, click on `Sync Changes`
+
+5. VSCode will may ask for your gitlab user name and password to be able to proceed. In such case, the small window will pop-up. Provide your credentials when that happens.
+
+### Commiting to remote repository using CLI
+
+1. Check the status of your local repository by typing the following command in CL:
+
+    ```
+    git status
+    ```
+
+2. Stage all changes you made, type:
+
+```
+git add -A
+```
+
+3. Commit changes to your local repository by typing the following command:
+
+```
+git commit -m 'Put your message here'
+```
+
+4. Push your local repository to the remote:
+
+```
+git push
+```
+
+### View your remote repository and the CICD pipeline status
+
+After pushing your local changes to remote repository you will be able to inspect the status of the CICD phase. In order to do so:
+
+1. go to our gitlab group: https://gitlab.com/bdtw-mdp-workshop and locate your repository. 
+
+2. In your repository page locate the CICD pipeline status indicator. You can inspect details by clicking on the `succes` or `fail` icon 
+
+    <img width="700" alt="image" src="Images/gitlab_commit_03.png" >
+
+
+## Review the pipeline execution results with Data Catalog, Airflow and BI Tool
+
+After commiting our project to remote repository, the code is distributed over all components of the Modern Data Platform. You can preview execution of the production pipeline performed by Airflow, inspect your models and their corresponding metadata in Data Catalog or proceed with analysis using Looker Studio. 
+
+For Airflow and Data Catalog, you will receive corresponding links through the workshops Slack channel. You can freely explore their content.
+
+For connecting your "prod" tables with the BI tool, follow the instructions provided below:
+
+1. Enter Looker studio navigation panel by clicking on this [link](https://lookerstudio.google.com/u/1/navigation/reporting). Note, you need to be logged in your gmail account to get access to our Bigquery datasets.
+
+2. Add a blank report.
+
+3. Use `Google connectors`: `BigQuery` and add our project 'bdtw-mdp-workshop`.
+
+4. Choose your dataset, `username_03_mart` and pick up the `dm_order_items` table, finish by clicking `Add`.
+
+    <img width="500" alt="image" src="Images/looker_01.png" >
+
+5. Start exploring your data and a create simple report. 
+
+    <img width="500" alt="image" src="Images/looker_02.png" >
 
 ## Bonus exercise: Fix the data quality
