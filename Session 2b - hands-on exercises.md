@@ -72,7 +72,7 @@ For better understanding we will first create a custom singular test and apply i
 
     So this time our test checks whether there are orders storing more than two products. And ineed there are such orders present, so the test fails.
 
-5. The task: Think of your own custom-made singular test, create the SQL file and verify if it works correctly in a way presented in an example above. Note that you can apply tests for models as well as for seeds or sources, just remember to use proper referencing functions!
+5. The task: Think of your own custom-made singular test, create the SQL file and verify if it works correctly in a way presented in the example above. Note that you can apply tests for models as well as for seeds or sources, just remember to use proper referencing functions!
 
     > Example 1: An example of such assertion could be that there should be no refunds present in the sales log (sale price is always > 0)
 
@@ -127,7 +127,7 @@ Let's put some tests to `model_order_items_with_tax`.
 
 4. The task: Check the docs for generic `accepted_values` test in https://docs.getdbt.com/docs/build/tests#generic-tests and apply it on `order_status` column. Values stored in this columns should be `Shipped`, `Complete`, `Cancelled`, `Processing` and `Returned` only, nulls are not allowed.
 
-5. The task: Experiment and add couple more built-in generic tests to other resources in your project. For more detailed instructions about seeds YAML properties file please refer to dbt documentation: https://docs.getdbt.com/reference/seed-properties
+5. The task: Experiment and add couple more built-in generic tests to other resources in your project. If you decide to test seeds, check the documentation (https://docs.getdbt.com/reference/seed-properties) to learn more about about seeds YAML properties.
 
 
 ## Create and apply your custom generic test
