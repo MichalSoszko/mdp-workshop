@@ -188,7 +188,7 @@ Having created our first model, we can now add tax rates to our `model_order_ite
         user_country,
         tr.Tax_Rate     as tax_rate,
 
-        round(order_item_sale_price * (tr.Tax_Rate / (100 + tr.Tax_Rate), 2)      as order_items_sale_VAT
+        round(order_item_sale_price * (tr.Tax_Rate / (100 + tr.Tax_Rate)), 2)      as order_items_sale_VAT
 
     from
         _order_items_with_country as oi
