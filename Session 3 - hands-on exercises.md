@@ -285,7 +285,7 @@ The `dbt_project.yml` is a configuration file that specifies project-level setti
           +materialized: view
           +schema: msoszko_bdtw_workshop_01_staging
         02_intermediate:
-          +materialized: ephemeral
+          +materialized: view
           +schema: msoszko_bdtw_workshop_02_intermediate
         03_mart:
           +materialized: table
