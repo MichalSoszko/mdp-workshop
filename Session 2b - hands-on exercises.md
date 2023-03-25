@@ -232,7 +232,7 @@ Adding descriptions to your tables and columns on early stage of data transforma
           description: 'Calculated VAT for item sold within the order'
     ```
 
-2. In ordr to check whether the documentation has been added correctly compile the project. Run the following command:
+2. In order to check whether the documentation has been added correctly compile the project. Run the following command:
 
     ```
     dbt compile
