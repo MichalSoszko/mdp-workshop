@@ -253,9 +253,9 @@ Adding descriptions to your tables and columns on early stage of data transforma
     dbt docs generate
     ```
 
-### Exercise
+### Exercises
 
-Try adding your own descriptions to your models.
+1. Try adding your own descriptions to your models.
 
 You can find more information about project documenting within dbt here: https://docs.getdbt.com/docs/collaborate/documentation 
 
