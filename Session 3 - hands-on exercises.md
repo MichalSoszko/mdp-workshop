@@ -350,3 +350,11 @@ left join
 </details>
 
     Note that whenever we call a marco wthin the SQL code in dbt, we need to put it in a double `{{ }}` brackets and pass the variables in quotes.
+
+## Publish your code to Gitlab and inspect results of CICD 
+
+TODO
+
+## Review the pipeline execution results with Data Catalog and BI Tool
+
+TODO
