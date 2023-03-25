@@ -132,7 +132,7 @@ The MDP instance we are working with during this tutorial uses `Bigquery`. In or
     ```
     SELECT oi.product_id as product_id, p.name as product_name, p.category as product_category, count(*) as num_of_orders
     FROM `bdtw-mdp-workshop.raw_data.products` as p 
-    JOIN `bdtw-mdp-workshop.raw_data.thelook_ecommerce.order_items` as oi
+    JOIN `bdtw-mdp-workshop.raw_data.order_items` as oi
     ON p.id = oi.product_id
     GROUP BY 1,2,3
     ORDER BY num_of_orders DESC
