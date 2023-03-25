@@ -15,7 +15,7 @@ Target environment will be Google Cloud Platform's: `BigQuery & Data Studio`, `V
 This tutorial uses our DataOps JupyterLab image gcp-1.5.0.
 For more versions and images check out [our public repo](https://github.com/getindata/jupyter-images/tree/master/jupyterlab-dataops).
 
-# Exercises
+# Tutorials
 
 ## Introduction
 
@@ -125,9 +125,10 @@ Let's put some tests to `model_order_items_with_tax`.
     dbt test --select model_order_items_with_tax+ // runs all tests for the model_order_items_with_tax + all downstream models
     ```
 
-4. The task: Check the docs for generic `accepted_values` test in https://docs.getdbt.com/docs/build/tests#generic-tests and apply it on `order_status` column. Values stored in this columns should be `Shipped`, `Complete`, `Cancelled`, `Processing` and `Returned` only, nulls are not allowed.
+### Exercise
+1. Check the docs for generic `accepted_values` test in https://docs.getdbt.com/docs/build/tests#generic-tests and apply it on `order_status` column. Values stored in this columns should be `Shipped`, `Complete`, `Cancelled`, `Processing` and `Returned` only, nulls are not allowed.
 
-5. The task: Experiment and add couple more built-in generic tests to other resources in your project. If you decide to test seeds, check the documentation (https://docs.getdbt.com/reference/seed-properties) to learn more about about seeds YAML properties.
+2. Experiment and add couple more built-in generic tests to other resources in your project. If you decide to test seeds, check the documentation (https://docs.getdbt.com/reference/seed-properties) to learn more about about seeds YAML properties.
 
 
 ## Create and apply your custom generic test
@@ -252,7 +253,9 @@ Adding descriptions to your tables and columns on early stage of data transforma
     dbt docs generate
     ```
 
-4. Exercise: Try adding your own descriptions to your models.
+### Exercise
+
+Try adding your own descriptions to your models.
 
 You can find more information about project documenting within dbt here: https://docs.getdbt.com/docs/collaborate/documentation 
 
