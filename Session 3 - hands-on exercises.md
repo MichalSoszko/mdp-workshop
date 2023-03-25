@@ -386,21 +386,21 @@ In order to commit your work to remote you can use either command line or VSCode
 
 2. Stage all changes you made, type:
 
-```
-git add -A
-```
+    ```
+    git add -A
+    ```
 
 3. Commit changes to your local repository by typing the following command:
 
-```
-git commit -m 'Put your message here'
-```
+    ```
+    git commit -m 'Put your message here'
+    ```
 
 4. Push your local repository to the remote:
 
-```
-git push
-```
+    ```
+    git push
+    ```
 
 ### View your remote repository and the CICD pipeline status
 
