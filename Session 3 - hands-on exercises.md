@@ -75,7 +75,7 @@ A `Staging area` is a transformation layer where data is cleaned (by formating, 
 
 7. Perform a code check by running `dbt compile` command in the command line.
 
-8. Exercise: Repeat steps `5` - `7` for new model file called `stg_users`. 
+8. **Exercise**: Repeat steps `5` - `7` for new model file called `stg_users`. 
     
     > Hint: You can choose whatever column naming convention you prefer.
 
@@ -143,7 +143,7 @@ An `Intermediate area` is a transformation layer where we apply complex conversi
 
 2. Inside of the `02_intermediate` folder create new model file called `int_order_items_with_country.sql`.
 
-3. Exercise: Knowing the `int_order_items_with_country` intermediate model is nearly a 1:1 copy of the existing `model_order_items_with_country`, fill up the new model with a proper SELECT statement.
+3. **Exercise**: Knowing the `int_order_items_with_country` intermediate model is nearly a 1:1 copy of the existing `model_order_items_with_country`, fill up the new model with a proper SELECT statement.
 
     >Note: New model should be referencing staging models created in previous chapter
 
@@ -193,7 +193,7 @@ A `mart layer` is a type of transformation layer that is used to build a data mo
 
 2. Inside of the `03_mart` folder create new model file called `dm_order_items.sql` and attach YAML metaconfig - `dm_order_items.yml`.
 
-3. Exercise: propose a SQL statement and YAML config for newly created (empty) model. Similar to previous chapter's intermediate example, use the fact that `dm_order_items` (along with its metacofnig YAML) is nearly a 1:1 copy of the `model_order_items_with_tax`.
+3. **Exercise** propose a SQL statement and YAML config for newly created (empty) model. Similar to previous chapter's intermediate example, use the fact that `dm_order_items` (along with its metacofnig YAML) is nearly a 1:1 copy of the `model_order_items_with_tax`.
 
     > Note: dm_order_items should be referencing 1 staging model and 1 intermediate model.
 
@@ -292,7 +292,7 @@ The `dbt_project.yml` is a configuration file that specifies project-level setti
           +schema: msoszko_bdtw_workshop_03_mart
     ```
 
-2. Exercise: change materialization to `table` in for all data transformation layers defined in the project.
+2. **Exercise**: change materialization to `table` in for all data transformation layers defined in the project.
 
 3. Execute the pipeline locally by running the `dbt run` command.
 
@@ -314,7 +314,7 @@ VAT amount = gross amount * (tax rate / (100 + tax rate))
     {% endmacro %}
     ```
 
-3. Exercise: In `models/03_mart/dm_order_items.sql` file add the following line to the select statement:
+3. **Exercise**: In `models/03_mart/dm_order_items.sql` file add the following line to the select statement:
 
     ```
     {{ calculate_VAT('order_item_sale_price', 'tr.tax_rate') }}   as order_items_sale_VAT_macro
