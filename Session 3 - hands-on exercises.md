@@ -437,7 +437,7 @@ For connecting your "prod" tables with the BI tool, follow the instructions prov
 
 ## Bonus exercise: Investigate data quality issues
 
-As you might have noticed while inspecting mart tables, there are `null` values in calculated VAT fields. As there is a measurable possibility that for some countries the concept of VAT has not been implemented, it is definitely not the case for China, Austria or Germany. Investigate the cause of this and fix the data!
+As you might have noticed while inspecting mart tables, there are `null` values present in calculated VAT fields. As there is a measurable possibility that for some countries the concept of VAT has not been implemented, it is definitely not the case for China, Austria or Germany. Investigate the cause of this and fix the data!
 
 >Hint: You could think of creating a custom test that checks integrity between coutries in `order_items` table and a corresponding list taken from `seed_tax_rates` 
 
