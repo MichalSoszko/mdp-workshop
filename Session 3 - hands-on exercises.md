@@ -419,6 +419,18 @@ After commiting our project to remote repository, the code is distributed over a
 
 For Airflow and Data Catalog, you will receive corresponding links through the workshops Slack channel. You can freely explore their content.
 
+### Trigger pipeline in Airflow
+
+1. Click on the Apache Airflow link provided in Slack and navigate to your project's pipeline (for simplicity, the DAG's name has been automaticaly set by DP Framework to be the same as your gitlab user name).
+
+2. Examine the DAG by clicking on `Graph View`. 
+
+3. Trigger the pipeline by pressing `Play` button. 
+
+> Note: If any of your tests fails, the pipeline stops. Because of that it is necasary to keep your data quality high! For now, however you can deactivate (delete / change conditions) all failing tests to allow pipelie to finish. If there are data quality issues, you will have a chance to fix them in couple of minutes. 
+
+### Add mart model connection to Looker Studio
+
 For connecting your "prod" tables with the BI tool, follow the instructions provided below:
 
 1. Enter Looker studio navigation panel by clicking on this [link](https://lookerstudio.google.com/u/1/navigation/reporting). Note, you need to be logged in your gmail account to get access to our Bigquery datasets.
